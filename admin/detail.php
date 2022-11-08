@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin'])){
     echo "<script>
-    document.location.href = '..login.php';
+    document.location.href = '../login.php';
     </script>";
 }
 ?>
@@ -62,67 +62,29 @@ if (!isset($_SESSION['admin'])){
                     while($row=mysqli_fetch_array($gambar)){
                     
                 ?>
-                <img src="assets/<?php echo $row['gambar']?>" alt="">
+                <img src="gambar/<?php echo $row['gambar']?>" alt="">
 
                 <h2></h1>
-            <div>
-                <h3>Top up</h3>
-                <ol>
-                    <li>Masukkan ID</li>
-                    <li>Pilih Nominal top-up</li>
-                    <li>Pilih Metode pembayaran</li>
-                    <li>Klik Order Now & Lakukan Pembayaran</li>
-                </ol>
-            </div>
         </div>
         <div class="forms">
             <div class="data">
-                <h3>Lengkapi Data</h3>
-                <form action="detail.php" method="post">
-                    <label for="id">ID</label>
-                    <input type="text" name="id" placeholder="Masukkan ID (Contoh: abcde#1234)" id="id">
+                <h3>Data Game</h3>
+                
+                    <label for="nama"><?php echo $row['nama']?></label>
                     <br></br>
-                    <label for="server_id">Server ID</label>
-                    <input type="text" name="server_id" placeholder="Masukkan Server ID (Contoh: abcde#1234)" id="server_id">
-                </form>
             </div>
             <div class="nominal">
-                <h3>Pilih Nominal</h3>
-                <form action="detail.php" method="post">
+                <h3>Nominal</h3>
+               
                     <div>
-                        <input type="radio" id="3400" name="jenis" value="3400">
-                        <label for="3400">3400 Points <i>(Rp 335.000)</i></label>
+                        <label for="jenis"><?php echo $row['jenis_pilihan']?></label>
                     </div>
-                    <div>
-                        <input type="radio" id="3400" name="jenis" value="3400">
-                        <label for="3400">3400 Points <i>(Rp 335.000)</i></label>
-                    </div>
-                    <div>
-                        <input type="radio" id="7000" name="jenis" value="7000">
-                        <label for="7000">7000 Points <i>(Rp 670.000)</i></label>
-                    </div>
-                </form>
-            </div>
-            <div class="pembayaran">
-                <h3>Pilih Metode Pembayaran</h3>
-                <form action="detail.php" method="post">
-                    <div>
-                        <input type="radio" id="E-Wallet" name="bayar" value="E-Wallet">
-                        <label for="E-Wallet">E-Wallet <i>(Dana, Gopay, OVO)</i></label>
-                    </div>
-                    <div>
-                        <input type="radio" id="transfer" name="bayar" value="transfer" >
-                        <label for="transfer">Bank Transfer <i>(BCA)</i></label>
-                    </div>
-                    <div>
-                        <input type="radio" id="virtual" name="bayar" value="virtual">
-                        <label for="virtual">Virtual Account <i>(Mandiri, BNI, BRI)</i></label>
-                    </div>
-                </form>
-            </div>
-            <div>
-            <!-- class="fas fa-cart-arrow-down" -->
-                <input class="order" type="button" value="Order Now !">
+                    
+                    <br>
+                    <td>
+                    <a href="editgame.php?id=<?=$row['id_game'];?>"class="bi bi-pencil-fill" viewBox="0 0 20 20"></a>
+                    <a href="deletegame.php?id=<?=$row['id_game'];?>"class="bi bi-trash-fill" viewBox="0 0 20 20"></a>
+                    </td>
             </div>
         </div>
 

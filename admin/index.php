@@ -76,11 +76,9 @@ require('../config.php');
                     <p>G-Store Is A Safe, Cheap Top Up Game Place. G-Store Provides Top Up Games Services such as Diamond Mobile Legends, Free Fire, Valorant, etc. To Simplify Your Payments Here We Also Provide Payment Methods Alfamart, Bank BCA, Bank Mandiri, Bank BNI, Bank Bri, DANA, OVO, Gopay, Shopee Pay, Link Aja, etc. If there are problems, please click contact us at the bottom right on this website.
                     </p>
                     <div class="content-find">
-                        <form action="">
-                            <input type="text" placeholder="find game">
-                        </form>
-                        <a href="#coming-soon">
-                            <button class="play-btn">Find</button>
+                        
+                        <a href="addgame.php">
+                            <button class="play-btn">Add Game</button>
                         </a>
                     </div>
                 </div>
@@ -102,7 +100,7 @@ require('../config.php');
                     
                 ?>
                 <li>
-                    <a href="detail.php?id=<?php echo $row['id_game'] ?>"><img src="assets/<?php echo $row['gambar']?>" alt="">
+                    <a href="detail.php?id=<?php echo $row['id_game'] ?>"><img src="gambar/<?php echo $row['gambar']?>" alt="">
                         <h3><?php echo $row['nama'] ?></h3>
                     </a>
                 </li>
