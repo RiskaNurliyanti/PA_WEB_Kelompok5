@@ -2,6 +2,7 @@
 session_start();
 require('../config.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +52,7 @@ require('../config.php');
                 <?php
                 // // if(
                 // ?>
-                <li id="log1"><a href="login.php">Login</a></li>
+                <li id="log1"><a href="../login.php">Login</a></li>
                 <?php
                 // }}
                 ?>
