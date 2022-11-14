@@ -34,13 +34,13 @@ echo <<<EOT
     <nav>
         <div class="logo">
             <a href="index.php" >
-                <b>Box Comment</b>
+                <b>Daftar Beli</b>
             </a>
         </div>
         <div class="menu">
             <ul >
                 <li><a href="index.php">Back to Home</a></li>
-                <li><a href="daftarBeli.php">Daftar Beli</a></li>
+                <li><a href="readC.php">Box Comment</a></li>
                 <li><a href="meme.php">Meme</a></li>
                 <li id="log2"><a href="profil.php">Profil</a></li>
             </ul>

@@ -38,7 +38,6 @@ if (!isset($_SESSION['admin'])){
                 <li><a href="index.php">Home</a></li>
                 <li><a href="readC.php">Box Comment</a></li>
                 <li id="log1"><a href="profil.php">Profil</a></li>
-                <li id="log2" style="display: none;"><a href="profil.php">Profil</a></li>
             </ul>
             <div class="mode">
                 <i onclick="myFunction()" class="bi bi-brightness-high-fill" id="toggleDark"></i>
@@ -60,36 +59,33 @@ if (!isset($_SESSION['admin'])){
         <div class="forms">
             <form method = "post" enctype="multipart/form-data">
                 <div class="data">
-                    <h3>Lengkapi Data</h3>
-                    
-                        <label for="Nama">Nama</label>
-                        <input type="text" name="nama" placeholder="Masukkan Nama Game (Contoh: Mobile Legend)" id="nama_game">
+                    <label for="Nama">Nama Game</label>
+                    <input type="text" name="nama" placeholder="Masukkan Nama Game (Contoh: Mobile Legend)" id="nama_game">
                 </div>
                 <div class="nominal">
-                    <h3>Jenis Pilihan</h3>
-                        <div>
-                            <label for="pilihan">Jenis Pilihan</label>
-                            <br>
-                            <textarea
-                            name="jenis_pilihan"
-                            id="pil"
-                            row="10"
-                            cols="50"
-                            placeholder="42 Diamonds Rp 34.000, 60 Diamonds Rp 50.000"
-                            ></textarea>      
+                    <h3>Masukkan Data</h3>
+                    <div class="pilihan">
+                        <label for="pilihan">Jenis Pilihan </label><br>
+                        <input type="text"
+                        name="jenis_pilihan"
+                        id="pil"
+                        row="10"
+                        cols="50"
+                        placeholder="42 Diamonds Rp 34.000, 60 Diamonds Rp 50.000"
+                        >     
+                    </div>
+                    <div class ="uploud-gambar">
+                        <label for ="" > Upload Gambar </label><br>
+                        <input type = "file" name="gambar">
+                    </div>
+                    <div class="name-file">
+                        <label for="">Nama File </label><br>
+                        <input type="text" name="nama_file">
+                    </div>
+                    <button method="post" class="order" name="create" type="submit" value="beli">Create</button>
+           
                 </div>
-            <div class ="gambar">
-                <h3>Gambar</h3>
-                <label for ="" > Upload Gambar : </label>
-                <input type = "file" name="gambar"><br><br>
-                <label for="">Nama File: </label>
-               <input type="text" name="nama_file">
-               <br><br>
-            <div>
-            <!-- class="fas fa-cart-arrow-down" -->
-                <button method="post" class="order" name="create" type="submit" value="beli">Create</button>
-            </div>
-        </form>
+            </form>
         </div> 
     </section>
 </body>
@@ -118,11 +114,16 @@ if (!isset($_SESSION['admin'])){
         $add = mysqli_query($db, "INSERT INTO game (nama,jenis_pilihan,gambar) VALUES ('$nama','$jenis_pilihan','$gambar_game')");
         
         if($add){
-            echo "<script> alert('Data Game Berhasil Ditambahkan');</script>";
-            header("Location:index.php");
+            echo "<script>
+            alert('Data Game Berhasil Ditambahkan');
+            document.location.href = 'index.php';
+            </script>";
         }else {
-            echo "Gagal Menambahkan Game, Coba Lagi";
-            header("Location:addgame.php");
+            
+            echo "<script>
+            alert('Gagal Menambahkan Game, Coba Lagi');
+            document.location.href = 'index.php';
+            </script>";
 
       }
 

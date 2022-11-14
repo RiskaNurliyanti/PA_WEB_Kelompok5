@@ -69,9 +69,9 @@ nav img{
     list-style: none;
 }
 .menu .mode{
-    width: 15%;
+    width: 10%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     list-style: none;
 }
 

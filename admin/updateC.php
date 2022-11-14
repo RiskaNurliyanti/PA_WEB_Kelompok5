@@ -36,7 +36,7 @@ if (isset($_GET['id_comment'])) {
 <div class="content update">
     <form action="updateC.php?id_comment=<?=$contact['id_comment']?>" method="post">
         <label for="id_comment">ID</label>
-        <input type="text" name="id_comment" value="<?=$contact['id_comment']?>" id="id_comment">
+        <input type="hidden" name="id_comment" value="<?=$contact['id_comment']?>" id="id_comment">
 
         <label for="nama">Nama</label>
         <input type="text" name="nama" value="<?=$contact['nama']?>" id="nama">

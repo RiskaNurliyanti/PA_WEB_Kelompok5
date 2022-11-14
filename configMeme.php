@@ -20,7 +20,9 @@ function template_head($title) {
             <meta charset="utf-8">
             <title>$title</title>
             <link href="css/meme.css" rel="stylesheet" type="text/css">
+            <link rel="shortcut icon" href="assets/logoIcon.png">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
         </head>
         <body>
         <nav class="navtop">
@@ -28,7 +30,10 @@ function template_head($title) {
                 <h1>Box Comment</h1>
                 <a href="index.php"><i class="fas fa-home"></i>Back to Homepage</a>
                 <a href="readC.php"></i>Comment</a>
-                <a href="meme.php"></i>Meme foto</a>
+                <a href="daftarbeli.php"></i>Daftar Beli</a>
+                <a href="profil.php"></i>Profil</a>
+
+
             </div>
         </nav>
     EOT;

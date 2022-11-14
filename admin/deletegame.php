@@ -7,10 +7,17 @@ if(isset($_GET['id'])){
     $hapus = mysqli_query($db, "DELETE FROM game WHERE id_game='$id'");
 
     if($hapus){
-         echo "<script> alert('Data Game Berhasil Dihapus');</script>";
-         header("Location:index.php");
+        echo "<script>
+        confirm('Apakah Anda Ingin Menghapus Data Game?');  
+        alert('Data Terhapus!');
+        document.location.href = 'index.php';
+        </script>";
         }else {
-                echo "Gagal Membeli, Coba Lagi";
+            echo "<script>
+            alert('Gagal Menghapus, Coba Lagi');
+            document.location.href = 'index.php';
+            </script>";
+                
         }
        
     }

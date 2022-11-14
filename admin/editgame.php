@@ -24,14 +24,19 @@
 
 
         if(move_uploaded_file($tmp, 'gambar/'.$gambar_game)) {
-            $update = mysqli_query($db, "UPDATE game SET nama='$nama', jenis_pilihan='$jenis_game', gambar='$gambar_game' WHERE id_game='$id'");
+            $update = mysqli_query($db, "UPDATE game SET nama='$nama', jenis_pilihan='$jenis_pilihan', gambar='$gambar_game' WHERE id_game='$id'");
         
         if($update){
-            echo "<script> alert('Data Game Berhasil Ditambahkan');</script>";
-            header("Location:index.php");
+            echo "<script>
+            alert('Data Terkirim, Update Berhasil!');
+            document.location.href = 'index.php';
+            </script>";
         }else {
-            echo "Gagal Menambahkan Game, Coba Lagi";
-            header("Location:addgame.php");
+            echo "<script>
+            alert('Gagal Mengupdate Data, Coba Lagi');
+            document.location.href = 'index.php';
+            </script>";
+            
 
       }
 
@@ -88,7 +93,7 @@
     <section>
         <div class="caption">
 
-                <h2>ADD GAME</h1>
+                <h2>EDIT GAME</h1>
                 <img src="gambar/<?php echo $row['gambar']?>" alt="">
         </div>
         <div class="forms">
@@ -105,14 +110,14 @@
                         <div>
                             <label for="pilihan">Jenis Pilihan</label>
                             <br>
-                            <textarea
+                            <textarea 
                             name="jenis_pilihan"
                             id="pil"
                             row="10"
                             cols="50"
                             placeholder="42 Diamonds Rp 34.000, 60 Diamonds Rp 50.000"
-                            value=<?php echo $row['jenis_pilihan'] ?>
-                            ></textarea>      
+                            value=
+                            ><?php echo $row['jenis_pilihan'] ?></textarea>      
                 </div>
             <div class ="gambar">
                 <h3>Gambar</h3>

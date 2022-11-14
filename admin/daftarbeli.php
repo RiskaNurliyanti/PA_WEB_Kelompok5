@@ -1,5 +1,16 @@
+<?php 
+    session_start();
+    require 'config.php';
+    
+    
+    if(!isset($_SESSION['admin'])){
+       echo "<script>location='../login.php'</script>";
+    }
+
+?>
+
 <?php
-include 'configComment.php';
+include 'configBeli.php';
 // Connect to MySQL database
 $pdo = pdo_connect_mysql();
 // Get the page via GET request (URL param: page), if non exists default the page to 1
@@ -24,34 +35,45 @@ $num_comment = $pdo->query('SELECT COUNT(*) FROM boxcomment')->fetchColumn();
 
 
 
-<?=template_header('Comment page')?>
+
+<?=template_header('Daftar Beli')?>
 
 <div class="content read">
-	<a href="createC.php" class="create-contact">Create Comment</a>
+	
     <form method= "get" action="">
-            <input class="input-find" type="text" placeholder= "Cari Komentar Dari Nama dan Email ..." name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];} ?>">
+            <input class="input-find" type="text" placeholder= "Cari Pembelian Game ..." name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];} ?>">
             <button class="find" type="submit">Cari</button>
     </form>  
 
 	<table>
         <thead>
             <tr>
-                <td>#</td>
+                <td>ID Beli</td>
+                <td>ID Akun</td>
+                <td>ID Game</td>
                 <td>Nama</td>
                 <td>Email</td>
-                <td>Tanggal</td>
-                <td>Comment</td>
+                <td>Nama Game</td>
+                <td>ID User</td>
+                <td>ID Server</td>
+                <td>Jenis Pilihan</td>
+                <td>Pembayaran</td>
+                <td>Waktu Pembelian</td>
                 <td></td>
             </tr>
         </thead>
         <tbody>
+
+
+
             <?php 
                 include "config.php";
+               
                 if (isset($_GET['cari'])){
                     $pencarian= $_GET['cari'];
-                    $query = "SELECT * FROM boxcomment WHERE nama LIKE '%".$pencarian."%' OR email LIKE '%".$pencarian."%'";  
+                    $query = "SELECT * FROM pembelian WHERE nama_game LIKE '%".$pencarian."%' OR email LIKE '%".$pencarian."%'";  
                 }else{
-                    $query= "SELECT * FROM boxcomment";
+                    $query= "SELECT * FROM pembelian";
                 }
 
 
@@ -59,26 +81,33 @@ $num_comment = $pdo->query('SELECT COUNT(*) FROM boxcomment')->fetchColumn();
                 while($row = mysqli_fetch_assoc($read)){
             ?>
             <tr>
-            <td><?php echo $row['id_comment'] ?></td>
+            <td><?php echo $row['id_beli'] ?></td>
+            <td><?php echo $row['id_akun'] ?></td>
+            <td><?php echo $row['id_game'] ?></td>
             <td><?php echo $row['nama'] ?></td>
             <td><?php echo $row['email'] ?></td>
-            <td><?php echo $row['tanggal'] ?></td>
-            <td><?php echo $row['komentar'] ?></td>
-            <!-- <td class="actions">
-                    <a href="updateC.php?id_comment=<?=$field['id_comment']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="deleteC.php?id_comment=<?=$field['id_comment']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
-            </td> -->
+            <td><?php echo $row['nama_game'] ?></td>
+            <td><?php echo $row['id_user'] ?></td>
+            <td><?php echo $row['server_id'] ?></td>
+            <td><?php echo $row['jenis_pilihan'] ?></td>
+            <td><?php echo $row['pembayaran'] ?></td>
+            <td><?php echo $row['waktu'] ?></td>
+            <td class="actions">
+                    <a href="editbeli.php?id=<?=$row['id_beli'];?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="deletebeli.php?id=<?=$row['id_beli'];?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+            </td>
             </tr>
                 <?php } ?>
-        </tbody>
+
+              
         <br>
     </table>
 	<div class="pagination">
 		<?php if ($page > 1): ?>
-		<a href="read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<a href="daftarbeli.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
 		<?php endif; ?>
 		<?php if ($page*$records_per_page < $num_comment): ?>
-		<a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<a href="daftarbeli.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
 	</div>
 </div>

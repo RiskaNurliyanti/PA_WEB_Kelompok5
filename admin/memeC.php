@@ -48,7 +48,7 @@
         $gambar_baru = "$nama.$ekstensi";
         $tmp = $_FILES['gambar']['tmp_name'];
 
-        if(move_uploaded_file($tmp, 'gambar/'.$gambar_baru)){
+        if(move_uploaded_file($tmp, 'gambar/'.$gambar_baru,)){
             $query = "INSERT INTO meme (waktu, nama) VALUES ('$waktu','$gambar_baru')";
             $result = $db->query($query);
 

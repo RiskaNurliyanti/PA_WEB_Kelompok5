@@ -17,11 +17,12 @@ if (!isset($_SESSION['admin'])){
     <title>G-Store: Top up Games</title>
     <link rel="shortcut icon" href="assets/logoIcon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-
+    
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
     <!-- CSS & script -->
     <link rel="stylesheet" href="css/detail.css">
@@ -75,16 +76,13 @@ if (!isset($_SESSION['admin'])){
             </div>
             <div class="nominal">
                 <h3>Nominal</h3>
-               
-                    <div>
-                        <label for="jenis"><?php echo $row['jenis_pilihan']?></label>
-                    </div>
-                    
-                    <br>
-                    <td>
-                    <a href="editgame.php?id=<?=$row['id_game'];?>"class="bi bi-pencil-fill" viewBox="0 0 20 20"></a>
-                    <a href="deletegame.php?id=<?=$row['id_game'];?>"class="bi bi-trash-fill" viewBox="0 0 20 20"></a>
-                    </td>
+                <div>
+                    <label for="jenis"><?php echo $row['jenis_pilihan']?></label>
+                </div><br>
+                <div class="actions">
+                    <a href="editgame.php?id=<?=$row['id_game'];?>"class="fas fa-pen fa-xs" id="1"></a>
+                    <a href="deletegame.php?id=<?=$row['id_game'];?>"class="fas fa-trash fa-xs" id="2"></a>
+                </div>
             </div>
         </div>
 
