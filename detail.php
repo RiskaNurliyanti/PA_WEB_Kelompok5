@@ -130,6 +130,7 @@ if (!isset($_SESSION['user'])){
                     <div>
                             
                             <label for="pil"><i><?php echo $row['jenis_pilihan']?></i></label>
+                            <br>
                             <input type="text" name="jenis" placeholder="Masukkan Jenis Top Up, contoh : 300 Points Rp 34.000">
                         
                     </div>
