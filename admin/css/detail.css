@@ -32,7 +32,6 @@ nav{
     justify-content: space-between;
     background-color: #B19973;
     padding: 5px 150px;
-    height: 30px;
 }
 
 nav a{
@@ -160,6 +159,14 @@ section{
     border-radius: 20px;
 }
 
+.caption ol{
+    padding-top: 10px;
+}
+
+.caption ol li{
+    padding-top: 5px;
+}
+
 .forms{
     width: 60%;
 }
@@ -188,80 +195,36 @@ section{
 
 .forms .nominal{
     border-radius: 20px;
+    margin-bottom: 20px;
     background-color: #212529;
     padding: 20px;
 }
 
-.forms .nominal div{
-    margin: 20px 0;
+.forms .nominal form div{
+    padding: 3px;
 }
-.forms .nominal div input{
-    color: black;
-    width: 30%;
-    background-color: #ced4da;
-    border-radius: 5px;
-    padding: 5px;
+
+.nominal form div input{
+    background-color: white;
+}
+
+.forms .pembayaran{
+    border-radius: 20px;
+    margin-bottom: 20px;
+    background-color: #212529;
+    padding: 20px;
+}
+
+.forms .pembayaran form div{
+    padding: 3px;
 }
 
 .forms .order{
-    margin: 10px 0;
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #32a367;
+    padding: 10px;
+    background-color: green;
     color: white;
     border-radius: 10px;
-    cursor: pointer;
 }
-.forms .order:hover{
-    background-color: green;
-}
-.actions{
-    display: flex;
-    padding: 10px;
-}
-
-.actions .fa-pen{
-    padding: 5px;
-    margin-right: 20px;
-    border-radius: 5px;
-    font-size: 20px;
-    color: white;
-    background-color: #37afb7;
-}
-.actions .fa-pen:hover{
-    background-color: #319ca3;
-}
-.actions .fa-trash{
-    padding: 5px;
-    margin-right: 20px;
-    border-radius: 5px;
-    font-size: 20px;
-    color: white;
-    background-color: #b73737;
-}
-.actions .fa-trash:hover{
-    background-color: #a33131;
-}
-
-/* section .forms .nominal td.actions .edit, section .forms .nominal td.actions .trash {
-    display: inline-flex;
-    text-align: right;
-    text-decoration: none;
-    color: #FFFFFF;
-    padding: 10px 12px;
-}
-section .forms .nominal td.actions .trash {
-    background-color: #b73737;
-}
-section .forms .nominal td.actions .trash:hover {
-    background-color: #a33131;
-}
-section .forms .nominal td.actions .edit {
-    background-color: #37afb7;
-}
-section .forms .nominal td.actions .edit:hover {
-    background-color: #319ca3;
-} */
 
 /* responsive */
 @media (max-width: 1100px) {

@@ -40,9 +40,9 @@ echo <<<EOT
         <div class="menu">
             <ul >
                 <li><a href="index.php">Back to Home</a></li>
-                <li><a href="readC.php">Box Comment</a></li>
+                <li><a href="daftarbeli.php">Daftar Beli</a></li>
                 <li><a href="meme.php">Meme</a></li>
-                <li id="log2" style="display: none;"><a href="profil.php">Profil</a></li>
+                <li id="log2"><a href="profil.php">Profil</a></li>
             </ul>
             <div class="mode">
                 <i onclick="myFunction()" class="bi bi-brightness-high-fill" id="toggleDark"></i>

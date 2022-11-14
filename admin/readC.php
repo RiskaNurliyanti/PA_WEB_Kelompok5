@@ -26,6 +26,11 @@ $num_comment = $pdo->query('SELECT COUNT(*) FROM boxcomment')->fetchColumn();
 
 <div class="content read">
 	<a href="createC.php" class="create-contact">Create Comment</a>
+    <form method= "get" action="">
+            <input class="input-find" type="text" placeholder= "Cari Komentar Dari Nama dan Email ..." name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];} ?>">
+            <button class="find" type="submit">Cari</button>
+    </form>  
+    <br>
 	<table>
         <thead>
             <tr>
@@ -38,19 +43,31 @@ $num_comment = $pdo->query('SELECT COUNT(*) FROM boxcomment')->fetchColumn();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($comment as $field): ?>
+            <?php 
+                include "config.php";
+                if (isset($_GET['cari'])){
+                    $pencarian= $_GET['cari'];
+                    $query = "SELECT * FROM boxcomment WHERE nama LIKE '%".$pencarian."%' OR email LIKE '%".$pencarian."%'";  
+                }else{
+                    $query= "SELECT * FROM boxcomment";
+                }
+
+
+                $read = mysqli_query($db, $query);
+                while($comment = mysqli_fetch_assoc($read)){
+            ?>
             <tr>
-                <td><?=$field['id_comment']?></td>
-                <td><?=$field['nama']?></td>
-                <td><?=$field['email']?></td>
-                <td><?=$field['tanggal']?></td>
-                <td><?=$field['komentar']?></td>
-                <td class="actions">
-                    <a href="updateC.php?id_comment=<?=$field['id_comment']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="deleteC.php?id_comment=<?=$field['id_comment']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
-                </td>
+            <td><?php echo $comment['id_comment'] ?></td>
+            <td><?php echo $comment['nama'] ?></td>
+            <td><?php echo $comment['email'] ?></td>
+            <td><?php echo $comment['tanggal'] ?></td>
+            <td><?php echo $comment['komentar'] ?></td>
+            <td class="actions">
+                    <a href="updateC.php?id_comment=<?=$comment['id_comment']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="deleteC.php?id_comment=<?=$comment['id_comment']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+            </td>
             </tr>
-            <?php endforeach; ?>
+                <?php } ?>
         </tbody>
     </table>
 	<div class="pagination">

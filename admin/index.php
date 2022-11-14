@@ -39,8 +39,24 @@ require('../config.php');
                 <li><a href="index.php">Home</a></li>
                 <li><a href="readC.php">Box Comment</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="story.php">Story</a></li>
+                <?php
+                // $akun1 = $_SESSION["user"]["id"];
+                // $akun=mysqli_query($db,"SELECT * FROM akun WHERE id = $akun1");
+                // if(mysqli_num_rows($akun)>0){
+                //     while($row=mysqli_fetch_array($akun)){
+                  
+                // ?>
+                <li><?
+                // php echo $row['nama']
+                ?></li>
+                <?php
+                // // if(
+                // ?>
                 <li id="log1"><a href="../login.php">Login</a></li>
+                <?php
+                // }}
+                ?>
+                <li id="log2" style="display: none;"><a href="profil.php">Profil</a></li>
             </ul>
             <div class="mode">
                 <i onclick="myFunction()" class="bi bi-brightness-high-fill" id="toggleDark"></i>
@@ -61,6 +77,7 @@ require('../config.php');
                     <p>G-Store Is A Safe, Cheap Top Up Game Place. G-Store Provides Top Up Games Services such as Diamond Mobile Legends, Free Fire, Valorant, etc. To Simplify Your Payments Here We Also Provide Payment Methods Alfamart, Bank BCA, Bank Mandiri, Bank BNI, Bank Bri, DANA, OVO, Gopay, Shopee Pay, Link Aja, etc. If there are problems, please click contact us at the bottom right on this website.
                     </p>
                     <div class="content-find">
+                        
                         <a href="addgame.php">
                             <button class="play-btn">Add Game</button>
                         </a>
@@ -92,6 +109,52 @@ require('../config.php');
                     }
                 }
                 ?>
+
+                // <!-- <li>
+                //     <a href="detail.php?id=2" target="_blank"><img src="assets/ml.png" alt="">
+                //         <h3>Mobile Legends</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/domino.jpg" alt="">
+                //         <h3>Higgs Domino</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/lol.png" alt="">
+                //         <h3>League Of Legends</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/apex.png" alt="">
+                //         <h3>Apex Legend</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/ff.jpg" alt="">
+                //         <h3>Free Fire</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/gt.webp" alt="">
+                //         <h3>Growtopia</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/pubg.jpg" alt="">
+                //         <h3>PUBG Mobile</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/cod.jpg" alt="">
+                //         <h3>Call of Duty</h3>
+                //     </a>
+                // </li>
+                // <li>
+                //     <a href="#comingsoon" target="_blank"><img src="assets/sausage.jpg" alt="">
+                //         <h3>Sausage Men</h3>
+                //     </a>
+                // </li> -->
             </ul>
         </div>
     </section>

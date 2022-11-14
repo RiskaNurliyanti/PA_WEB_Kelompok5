@@ -27,7 +27,7 @@
             <input type="file" name="gambar"><br><br>
 
             <input type="hidden" name="waktu" value=<?= date("d-m-Y")?>>
-            <input type="submit" name="submit" value="Uploud" class="sus">
+            <input type="submit" name="submit" value="Upload" class="sus">
         </form>
     </div>
 </body>

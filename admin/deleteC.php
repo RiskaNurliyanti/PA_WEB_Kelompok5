@@ -1,3 +1,16 @@
+
+<?php 
+
+require 'config.php';
+
+?>
+
+
+
+
+
+
+
 <?php
 include 'configComment.php';
 $pdo = pdo_connect_mysql();
