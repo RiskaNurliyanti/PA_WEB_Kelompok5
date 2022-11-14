@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 01:02 PM
+-- Generation Time: Nov 14, 2022 at 01:26 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -59,7 +59,9 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id`, `nama`, `username`, `email`, `psw`) VALUES
-(4, 'test', 'test', 'test@gmail.com', '$2y$10$sRxzgPeTH1POhSjejez5auhk.9tIoS2cIXYkLH5qyOv90exovcTYO');
+(4, 'test', 'test', 'test@gmail.com', '$2y$10$sRxzgPeTH1POhSjejez5auhk.9tIoS2cIXYkLH5qyOv90exovcTYO'),
+(5, 'coba', 'coba', 'coba@gmail.com', '$2y$10$yJoQb8zeW79nyLYY9ta9WuiQqyaXzdjl1wEYh4P1sE5pni/iHY42y'),
+(6, 'mail', 'mail', 'mail@gmail.com', '$2y$10$/spEBBLcuFi1psF9VQVTDe8tlFPEPuIHedcIwNw69OYr2Czj4SZBq');
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE `boxcomment` (
   `id_comment` int(10) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` varchar(50) NOT NULL,
   `komentar` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -80,8 +82,10 @@ CREATE TABLE `boxcomment` (
 --
 
 INSERT INTO `boxcomment` (`id_comment`, `nama`, `email`, `tanggal`, `komentar`) VALUES
-(1, 'test', 'test@gmail.com', '2022-11-08', 'abcd'),
-(2, 'coba', 'coba@gmail.com', '2022-11-07', 'efgh');
+(1, 'test', 'test@gmail.com', '12-11-2022', 'abcdefg'),
+(5, 'coba', 'coba@gmail.com', '11-11-2022', '789'),
+(10, 'mail', 'mail@gmail.com', '12-11-2022', '6'),
+(11, 'fizi', 'fizi@gmail.com', '12-11-2022', '111');
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,7 @@ INSERT INTO `boxcomment` (`id_comment`, `nama`, `email`, `tanggal`, `komentar`) 
 CREATE TABLE `game` (
   `id_game` int(11) NOT NULL,
   `nama` varchar(30) NOT NULL,
-  `jenis_pilihan` varchar(100) NOT NULL,
+  `jenis_pilihan` varchar(255) NOT NULL,
   `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -101,7 +105,7 @@ CREATE TABLE `game` (
 --
 
 INSERT INTO `game` (`id_game`, `nama`, `jenis_pilihan`, `gambar`) VALUES
-(16, 'APEX Legends Mobile', 'Syndicate Gold Pack 4 (500 Gold) Rp 65.000, Syndicate Gold Pack 33 (800 Gold) Rp 99.000,\r\nSyndicate ', 'Apex.png'),
+(16, 'APEX', 'Syndicate Gold Pack 4 (500 Gold) Rp 65.000, Syndicate Gold Pack 33 (800 Gold) Rp 99.000, Syndicate G', 'Apex.png'),
 (17, 'Call of Duty Mobile', '31 CP Rp 5.000, 127 CP Rp 20.000, 320 CP Rp 50.000', 'cod.jpg'),
 (18, 'Higgs Domino', '30M Koin Emas Rp 5.000, 100M Koin Emas Rp 15.000, 200M Koin Emas Rp 30.000', 'domino.jpg'),
 (19, 'Free Fire', '70 Diamonds Rp 10.000, 140 Diamonds Rp 20.000, 355 Diamonds Rp 50.000', 'ff.jpg'),
@@ -129,9 +133,11 @@ CREATE TABLE `meme` (
 --
 
 INSERT INTO `meme` (`id`, `waktu`, `nama`) VALUES
-(3, '28-10-2022', 'kiki.jpg'),
-(4, '28-10-2022', 'rusni.jpg'),
-(5, '28-10-2022', 'leka.png');
+(8, '11-11-2022', 'test.png'),
+(12, '11-11-2022', 'test.webp'),
+(13, '11-11-2022', 'test.png'),
+(15, '12-11-2022', 'akun2.png'),
+(16, '12-11-2022', 'admin.png');
 
 -- --------------------------------------------------------
 
@@ -141,14 +147,30 @@ INSERT INTO `meme` (`id`, `waktu`, `nama`) VALUES
 
 CREATE TABLE `pembelian` (
   `id_beli` int(5) NOT NULL,
+  `id_akun` int(5) NOT NULL,
   `id_game` int(5) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `nama_game` varchar(30) NOT NULL,
   `id_user` varchar(30) NOT NULL,
   `server_id` varchar(30) NOT NULL,
-  `pembayaran` varchar(30) NOT NULL
+  `jenis_pilihan` varchar(50) NOT NULL,
+  `pembayaran` varchar(30) NOT NULL,
+  `waktu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembelian`
+--
+
+INSERT INTO `pembelian` (`id_beli`, `id_akun`, `id_game`, `nama`, `email`, `nama_game`, `id_user`, `server_id`, `jenis_pilihan`, `pembayaran`, `waktu`) VALUES
+(14, 5, 21, 'coba', 'coba@gmail.com', 'League', '345', '1111', '417 Wild Cores +7 Bonus Rp 50.000', 'transfer', '2022-11-11'),
+(15, 5, 20, 'coba', 'coba@gmail.com', 'Growtopia', 'aaaaa', '678', 'Builder Lock Rp 2.600', 'E-Wallet', '2022-11-29'),
+(25, 4, 17, 'test', 'test@gmail.com', 'Call of Duty Mobile', '777', '7777', ' 320 CP Rp 50.000', 'E-Wallet', '2022-11-12'),
+(26, 4, 24, 'test', 'test@gmail.com', 'Sausage Man', '888', '999', '180 CANDIES Rp 49.000', 'transfer', '2022-11-12'),
+(27, 4, 17, 'test', 'test@gmail.com', 'Call of Duty Mobile', '1313', '1212', '31 CP Rp 5.000', 'E-Wallet', '2022-11-14'),
+(29, 6, 22, 'mail', 'mail@gmail.com', 'Mobile Legend', '888', '888', '257 Diamonds Rp 65.000', 'E-Wallet', '2022-11-14'),
+(30, 4, 24, 'test', 'test@gmail.com', 'Sausage Man', '444', '444', '180 CANDIES Rp 49.000', 'virtual', '2022-11-14');
 
 --
 -- Indexes for dumped tables
@@ -189,7 +211,8 @@ ALTER TABLE `meme`
 --
 ALTER TABLE `pembelian`
   ADD PRIMARY KEY (`id_beli`),
-  ADD KEY `id_game` (`id_game`);
+  ADD KEY `id_game` (`id_game`),
+  ADD KEY `id_akun` (`id_akun`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -205,31 +228,31 @@ ALTER TABLE `admin1`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `boxcomment`
 --
 ALTER TABLE `boxcomment`
-  MODIFY `id_comment` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_comment` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id_game` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_game` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `meme`
 --
 ALTER TABLE `meme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_beli` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_beli` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
